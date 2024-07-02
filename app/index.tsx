@@ -3,9 +3,15 @@ import React from 'react';
 import images from '@/constants/images';
 import CustomButton from '@/components/CustomButton';
 import { StatusBar } from 'expo-status-bar';
-import { router } from 'expo-router';
+import { Redirect, router } from 'expo-router';
+import { useGlobalContext } from '@/contexts/GlobalProvider';
 
 const Index = () => {
+  const { isLoading, isLogged, user } = useGlobalContext();
+  console.log('🚀 ~ Index ~ user:', user);
+
+  if (!isLoading && isLogged) return <Redirect href={'/home'} />;
+
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: '100%' }}>

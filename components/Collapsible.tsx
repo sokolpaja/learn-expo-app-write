@@ -8,8 +8,6 @@ import {
   useColorScheme,
 } from 'react-native';
 
-import { Colors } from '@/constants/Colors';
-
 export function Collapsible({
   children,
   title,
@@ -26,7 +24,6 @@ export function Collapsible({
         <Ionicons
           name={isOpen ? 'chevron-down' : 'chevron-forward-outline'}
           size={18}
-          color={theme === 'light' ? Colors.light.icon : Colors.dark.icon}
         />
         <Text>{title}</Text>
       </TouchableOpacity>
